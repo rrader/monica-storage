@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MonicaApp</string>
+    <string name="title_storage">Storage</string>
+    <string name="title_shoppinglist">Shopping List</string>
+    <string name="storage_add_button">Add button</string>
+    <string name="add_item_expiration_date">Expiration date</string>
+    <string name="add_item_name">Item name</string>
+    <string name="add_item_button_confirm">Confirm</string>
+</resources>

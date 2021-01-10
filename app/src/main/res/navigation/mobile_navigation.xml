@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_storage">
+
+    <fragment
+        android:id="@+id/navigation_storage"
+        android:name="com.antiglukapps.monikaapp.ui.storage.StorageFragment"
+        android:label="@string/title_storage"
+        tools:layout="@layout/fragment_storage" />
+
+    <fragment
+        android:id="@+id/navigation_shoppinglist"
+        android:name="com.antiglukapps.monikaapp.ui.shoppinglist.ShoppingListFragment"
+        android:label="@string/title_shoppinglist"
+        tools:layout="@layout/fragment_shoppinglist" />
+
+</navigation>
