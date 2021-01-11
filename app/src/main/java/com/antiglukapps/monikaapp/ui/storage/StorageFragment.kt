@@ -52,10 +52,15 @@ class StorageFragment : Fragment(), StorageItemAdapter.OnStorageItemClickedListe
 
     override fun onResume() {
         super.onResume()
-        storageItemAdapter.storageItemsList = monicaDatabase.getStorageItemDao().getStorageItemList()
-        storageRv.adapter = storageItemAdapter
+        updateList()
         storageRv.layoutManager = LinearLayoutManager(activity)
         storageRv.hasFixedSize()
+    }
+
+    private fun updateList() {
+        storageItemAdapter.storageItemsList =
+            monicaDatabase.getStorageItemDao().getStorageItemList()
+        storageRv.adapter = storageItemAdapter
     }
 
     override fun onStorageItemClicked(storageItem: StorageItem) {
@@ -66,7 +71,8 @@ class StorageFragment : Fragment(), StorageItemAdapter.OnStorageItemClickedListe
         startActivity(intent)
     }
 
-    override fun onStorageItemLongClicked(storageItem: StorageItem) {
-        TODO("Not yet implemented")
+    override fun onStorageItemDeleteClicked(storageItem: StorageItem) {
+        monicaDatabase.getStorageItemDao().removeStorageItem(storageItem)
+        updateList()
     }
 }

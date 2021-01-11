@@ -3,6 +3,7 @@ package com.antiglukapps.monikaapp.ui.storage
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.antiglukapps.monikaapp.R
@@ -30,10 +31,6 @@ class StorageItemAdapter(var storageItemsList: List<StorageItem>? = ArrayList())
                 storageItemsList!!.get(position)
             )
         }
-        holder.view.setOnLongClickListener {
-            onStorageItemClickedListener!!.onStorageItemLongClicked(storageItemsList!!.get(position))
-            true
-        }
         holder.onBindViews(position)
     }
 
@@ -43,9 +40,11 @@ class StorageItemAdapter(var storageItemsList: List<StorageItem>? = ArrayList())
             view.findViewById<TextView>(R.id.storageItemName).text =
                 storageItemsList.get(position).title
 
+            val item = storageItemsList.get(position)
+
             val expiresDays =
-                ExpirationHelpers.daysToExpire(storageItemsList.get(position).expiration_dt)
-            val expiresDate = ExpirationHelpers.format(storageItemsList.get(position).expiration_dt)
+                ExpirationHelpers.daysToExpire(item.expiration_dt)
+            val expiresDate = ExpirationHelpers.format(item.expiration_dt)
 
             val dayWord = if (expiresDays > 1) {
                 "days"
@@ -55,6 +54,14 @@ class StorageItemAdapter(var storageItemsList: List<StorageItem>? = ArrayList())
 
             view.findViewById<TextView>(R.id.storageItemExpiration).text =
                 "$expiresDate ($expiresDays $dayWord)"
+
+            view.findViewById<Button>(R.id.storageItemDeleteButton).setOnClickListener {
+                onStorageItemClickedListener!!.onStorageItemDeleteClicked(
+                    storageItemsList.get(
+                        position
+                    )
+                )
+            }
         }
     }
 
@@ -64,6 +71,6 @@ class StorageItemAdapter(var storageItemsList: List<StorageItem>? = ArrayList())
 
     interface OnStorageItemClickedListener {
         fun onStorageItemClicked(storageItem: StorageItem)
-        fun onStorageItemLongClicked(storageItem: StorageItem)
+        fun onStorageItemDeleteClicked(storageItem: StorageItem)
     }
 }
