@@ -15,12 +15,12 @@ class ShoppingListFragment : Fragment() {
     private lateinit var shoppingListViewModel: ShoppingListViewModel
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         shoppingListViewModel =
-                ViewModelProvider(this).get(ShoppingListViewModel::class.java)
+            ViewModelProvider(this).get(ShoppingListViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_shoppinglist, container, false)
         val textView: TextView = root.findViewById(R.id.text_dashboard)
         shoppingListViewModel.text.observe(viewLifecycleOwner, Observer {

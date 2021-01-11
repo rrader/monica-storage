@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.antiglukapps.monikaapp.AddStorageItemActivity
+import com.antiglukapps.monikaapp.ui.storageItemEdit.AddStorageItemActivity
 import com.antiglukapps.monikaapp.R
 import com.antiglukapps.monikaapp.data.MonicaDatabase
 import com.antiglukapps.monikaapp.data.StorageItem
@@ -59,7 +59,11 @@ class StorageFragment : Fragment(), StorageItemAdapter.OnStorageItemClickedListe
     }
 
     override fun onStorageItemClicked(storageItem: StorageItem) {
-        TODO("Not yet implemented")
+        val intent = Intent(
+            activity, AddStorageItemActivity::class.java
+        )
+        intent.putExtra("storageItemId", storageItem.tId)
+        startActivity(intent)
     }
 
     override fun onStorageItemLongClicked(storageItem: StorageItem) {
