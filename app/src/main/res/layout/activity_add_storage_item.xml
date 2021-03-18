@@ -32,6 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextStorageItemName"
         android:focusable="false" />
 
+
     <Button
         android:id="@+id/buttonAddItemConfirm"
         android:layout_width="wrap_content"
@@ -40,6 +41,30 @@
         android:text="@string/add_item_button_confirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barcode_text" />
+
+    <SurfaceView
+        android:id="@+id/surface_view"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextExpirationDate" />
+
+    <TextView
+        android:id="@+id/barcode_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:padding="5dp"
+        android:text="@string/barcode_text"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/surface_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,4 +6,5 @@
     <string name="add_item_expiration_date">Expiration date</string>
     <string name="add_item_name">Item name</string>
     <string name="add_item_button_confirm">Confirm</string>
+    <string name="barcode_text">Barcode Text</string>
 </resources>
